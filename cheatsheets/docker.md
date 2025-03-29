@@ -1,10 +1,20 @@
 # Docker
 
+## Build
+
 Always build with tag to avoid dangling images:
 
 ```sh
 docker build -t hugo-ext-test:latest .
 ```
+
+Rebuild ignoring cache:
+
+```sh
+docker build --no-cache -t hugo-ext-test:latest .
+```
+
+## Run
 
 Avoid having tons of containers which you then have to remove:
 
