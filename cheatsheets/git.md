@@ -2,6 +2,45 @@
 
 Resource: [Pro Git 2nd Edition](https://git-scm.com/book/en/v2).
 
+## Gitignore
+
+Exclude everything except directory `foo/bar`:
+
+```bash
+# .gitignore
+/*
+!/foo
+/foo/*
+!/foo/bar
+```
+
+Now an example from the Obsidian vault. Exclude everything except plans (`2. Areas/Time Management/Plans`) and archived plans from 2025 (`4. Archive/Time Management/Weekly/2025`):
+
+```bash
+# .gitignore
+# exclude everything
+/*
+
+# except gitignore
+!.gitignore
+
+# except plans
+!2. Areas
+2. Areas/*
+!2. Areas/Time Management
+2. Areas/Time Management/*
+!2. Areas/Time Management/Plans
+
+# except plan archive
+!4. Archive
+4. Archive/*
+!4. Archive/Time Management
+4. Archive/Time Management/*
+!4. Archive/Time Management/Weekly
+4. Archive/Time Management/Weekly/*
+!4. Archive/Time Management/Weekly/2025
+```
+
 ## Commands
 
 Restore to commit before merge:
