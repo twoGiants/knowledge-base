@@ -45,9 +45,9 @@ docker images -f "dangling=true" -q | xargs docker rmi
 ## Dockerfile
 
 ```Dockerfile
-# can not be overwritten and is always executed on `docker run`
+# always executed on `docker run`, can not be overwritten
 ENTRYPOINT ["sh", "run.sh"]
 
-# can be overwritten and serves as arguments to above
+# serves as arguments to above, can be overwritten, can be used alone
 CMD ["--opt", "hello"]
 ```
