@@ -41,3 +41,13 @@ Remove dangling images:
 ```sh
 docker images -f "dangling=true" -q | xargs docker rmi
 ```
+
+## Dockerfile
+
+```Dockerfile
+# can not be overwritten and is always executed on `docker run`
+ENTRYPOINT ["sh", "run.sh"]
+
+# can be overwritten and serves as arguments to above
+CMD ["--opt", "hello"]
+```
