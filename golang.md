@@ -8,6 +8,8 @@ If you have a v1 config file but v2 installed, you can migrate it and then run `
 golangci-lint migrate
 ```
 
+Read more [here](https://golangci-lint.run/product/migration-guide/) about migration.
+
 ## PR Readiness Checklist
 
 - Tests pass
