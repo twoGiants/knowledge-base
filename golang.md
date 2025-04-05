@@ -1,5 +1,13 @@
 # Golang
 
+## Golangci-lint
+
+If you have a v1 config file but v2 installed, you can migrate it and then run `golangci-lint`:
+
+```sh
+golangci-lint migrate
+```
+
 ## PR Readiness Checklist
 
 - Tests pass

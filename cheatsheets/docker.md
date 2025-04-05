@@ -28,6 +28,7 @@ docker start -i hugo-ext-test
 # or login later if you start it w/o "-i", it remains running when you exit
 docker exec -it hugo-ext-test sh
 ```
+
 ## Remove
 
 List dangling images:
