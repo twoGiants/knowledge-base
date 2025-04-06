@@ -7,3 +7,5 @@ Collections of self authored cheat sheets written while studying/skimming a topi
 - [Vim](cheatsheets/vim.md)
 - [Golang](golang.md)
 - [Coding Wisdom](wisdom.md)
+- [Obsidian](obsidian.md)
+- [VSCodium](vscodium.md)
