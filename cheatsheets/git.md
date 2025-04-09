@@ -6,7 +6,7 @@ Resource: [Pro Git 2nd Edition](https://git-scm.com/book/en/v2).
 
 Exclude everything except directory `foo/bar`:
 
-```bash
+```sh
 # .gitignore
 /*
 !/foo
@@ -16,7 +16,7 @@ Exclude everything except directory `foo/bar`:
 
 Now an example from the Obsidian vault. Exclude everything except plans (`2. Areas/Time Management/Plans`) and archived plans from 2025 (`4. Archive/Time Management/Weekly/2025`):
 
-```bash
+```sh
 # .gitignore
 # exclude everything
 /*
@@ -44,7 +44,8 @@ Now an example from the Obsidian vault. Exclude everything except plans (`2. Are
 ## Commands
 
 Restore to commit before merge:
-```bash
+
+```sh
 # one commit before
 git reset --merge HEAD~1
 
@@ -52,23 +53,29 @@ git reset --merge HEAD~1
 git reset --merge <commit-sha>
 ```
 
-**Store username and password**
-```bash
+Store username and password
+
+```sh
 git config --global credential.helper store
 ```
-**Cache username and password for a session**
-```bash
+
+Cache username and password for a session
+
+```sh
 git config --global credential.helper cache
 ```
 
 Config
-```bash
+
+```sh
 git config —-list
 git config user.name
 git config —-show-origin user.name
 ```
+
 Intro
-```
+
+```sh
 git status -s
 
 # diff of staged to last commit
@@ -110,40 +117,50 @@ git log —-decorate —-oneline —-all —-graph
 Git log pretty format options p.43
 
 Unstage file
-```
+
+```sh
 git reset HEAD <file>
 
 # OR the new command
 git restore —-staged <file>
 ```
+
 Unmodify modified file
-```
+
+```sh
 git checkout —- <file>
 
 # OR
 git restore <file>
 ```
+
 If you use other remotes name them by the owner names
-```
+
+```sh
 git remote add tg https://github.com/twogiants/example-repo.git
 ```
+
 If you want to rebase when pulling:
-```
+
+```sh
 git config --global pull.rebase "true"
 ```
+
 Tags p56
 
 * annotated recommended
 * lightweight tags are not shown in the log
 * push single or all of them
 
-```
+```sh
 git push origin v1.5
 git push origin —-tags
 git push origin <branch> —-follow-tags
 ```
+
 Deleting Tags
-```
+
+```sh
 git tag -d v1.5
 git push origin —-delete v1.5
 # OR
@@ -151,7 +168,8 @@ git push origin :ref/tags/v1.5
 ```
 
 You can use switch instead of checkout:
-```
+
+```sh
 # switch
 git switch testing-branch
 
@@ -169,7 +187,8 @@ Branches and Merges
 * If you have conflicts, resolve them, remove the markers and use git add to stage, staged files are seen as resolved. When you commit you get a standard commit message, chnage it if the commit was complex and needed some special changes
 
 The branch cmd
-```
+
+```sh
 # show branches
 git branch
 
@@ -185,14 +204,17 @@ git branch —-no-merged
 # show not merged in master when you are in testing
 git branch —-no-merged master
 ```
+
 Rename and update on the remote p81
-```
+
+```sh
 git branch —-move bad-name corrected-name
 git push —-set-upstream origin corrected-name
 git branch —-all
 git push origin —-delete bad-name
 git branch —-all
 ```
+
 Working with remotes p85
 
 * remote branches are pointers you can’t move -> origin/master does not move
@@ -205,7 +227,7 @@ Working with remotes p85
 * If you already have a local branch and you want it to track a remote branch: git branch -u origin/serverfix
 * See what tracking branches you have set up:
 
-```
+```sh
 git fetch —-all
 git branch -vv
     iss53    7e424c3 [origin/iss53: ahead 2] Add forgotten brackets
@@ -224,7 +246,7 @@ Rebase p95
 
 * Take all the changes you did in one branch and replay them on another branch and then fast forward merge
 
-```
+```sh
 git checkout experiment
 git rebase master
 git checkout master
@@ -245,110 +267,116 @@ Git commits p131
 * documentation/submittingpatches in git project
 * Check whitespace
 
-```
+```sh
 git diff —check
 ```
+
 Git Workflows p139
 
 * Get remote and see only the new changes to you local branch
 
-```
+```sh
 git fetch origin
 git log featureA..origin/featureA
 ```
 
 * set your upstream to a remote branch with a different name
 
-```
+```sh
 git push -u origin featureB:featureBee
 ```
 
 * if your contributor sends you two patches and you create a branch called contrib and applied those patches there, you can run this
 
-```
+```sh
 git log contrib —-not master
 ```
 
 * shows you only the work your current topic branch has introduced since its common ancestor with master
 
-```
+```sh
 git diff contrib...master
 ```
+
 Rerere p162
 
 * use rerere when maintaining a long lived branch which will memorize conflict resolutions and apply them on future conflicts
 
-```
+```sh
 git config --global rerere.enabled true
 ```
+
 Generate a build number p163
 
 * latest tag will used and number of commits since then with the sha of the last commit and g as prefix
 
-```
+```sh
 git describe master
 v1.6.2-rc1-20-g8c5b85c
 ```
+
 Release p164
 
 * creates the latest snapshot of your code in an archive
 
-```
+```sh
 git archive master —-prefix=“project/“ | gzip > $(git describe master).tar.gz
 ls *.tar.gz
 v1.6.2-rc1-20-g8c5b85c.tar.gz
 ```
+
 Shortlog/Changelog p164
 
 * everything that was added since last release v1.0.1
 
-```
+```sh
 git shortlog —-no-merges master —-not v1.0.1
 ```
+
 Git Tools
 
 * The sha-1 value of at least 4 characters can be used instead of the full sha
 
-```
+```sh
 git show 0f9i
 ```
 
 * show the short sha on each commit
 
-```
+```sh
 git log —-abbrev-commit —-pretty=oneline
 ```
 
 * get sha of branch tip
 
-```
+```sh
 git rev-parse topic1
 ca82a6dff817ec66f44342007202690a93763949
 ```
 
 * reflog is a log of where the head and branches were in the last months
 
-```
+```sh
 git reflog
 ```
 
 * show ancestor or parent
 * show parent of parent etc
 
-```
+```sh
 git show HEAD^
 git show HEAD~3
 ```
 
 * what is in your experiment branch that hasn’t yet been merged into your master
 
-```
+```sh
 git log master..experiment
 ```
 
 * what are rhe commits you are going to push
 
-```
+```sh
 git log origin/featureA..HEAD
 # OR
 git log origin/featureA..
@@ -356,67 +384,69 @@ git log origin/featureA..
 
 * see all commits that are reachable from refA or refB but not from refC
 
-```
+```sh
 git log refA refB —-not refC
 ```
 
 * all the commits that are reachable by either of two references but not by both of them
 
-```
+```sh
 git log experiment...master —-left-right
 ```
 
 * interactive staging
 
-```
+```sh
 git add -i
 ```
 
 * staging patches
 
-```
+```sh
 git add -p
 ```
+
 Git Stash
 
 * stash and restore the staged files
 
-```
+```sh
 git stash apply —-index
 ```
 
 * stash but keep stuff in the index in case you want to apply it somewhere else
 
-```
+```sh
 git stash —-keep-index
 ```
 
 * stash with untracked files, otherwise only the staged ones will be stahsed
 
-```
+```sh
 git stash -u # —-include-untracked
 ```
 
 * and to add ignored files also add
 
-```
+```sh
 git stash -a # —-all
 ```
 
 * stash interactively and decide what to stash and what not
 
-```
+```sh
 git stash —-patch
 ```
 
 * create a branch from stash -> useful when you continued working after stashing and don’t want to apply in the current branch
 
-```
+```sh
 git stash branch <new-branch-name>
 ```
 
 Create patch from 1 commit and apply somewhere
-```bash
+
+```sh
 # create
 git format-patch -1 e314b68 
 
