@@ -9,3 +9,4 @@ Collections of self authored cheat sheets written while studying/skimming a topi
 - [Coding Wisdom](wisdom.md)
 - [Obsidian](obsidian.md)
 - [VSCodium](vscodium.md)
+- [Tekton](tekton.md)
