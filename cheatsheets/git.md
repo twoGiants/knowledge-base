@@ -426,6 +426,12 @@ git stash —-keep-index
 git stash -u # —-include-untracked
 ```
 
+* stash with untracked files and message
+
+```sh
+git stash -um "your message"
+```
+
 * and to add ignored files also add
 
 ```sh
