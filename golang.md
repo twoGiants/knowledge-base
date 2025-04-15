@@ -31,27 +31,49 @@ A rune literal in Go is a character enclosed in single quotes, representing a si
 
 ## Slices
 
-- portion of slice syntax does not include the number of the last used index:
+Portion of slice syntax does not include the number of the last used index:
+
 ```go
 nums := []int{1,2,3,4}
 portion := nums[0:2]
 fmt.Println(portion) 
 // prints: [1,2], number at index 2 which is "3" is not included
 ```
+
 ## Format
 
 [Docs](https://pkg.go.dev/fmt).
 
+## Testing
+
+Run the tests and get the coverage profile. Its only possible for the entire package:
+
+```sh
+go test ./pkg/apis/pipeline/v1 -coverprofile=coverage.out
+```
+
+Then view the coverage profile in the browser. See [Tooling](#tooling).
+
+Run a single test:
+
+```sh
+go test ./pkg/apis/pipeline/v1/container_validation_test.go -run ^TestSidecarValidateError
+```
+
 ## Tooling
 
-- Coverage with browser output: [link](https://go.dev/blog/cover), 
-```bash
+Coverage ([docs](https://go.dev/blog/cover)) with browser output:
+
+```sh
 go tool cover -html=coverage.out
 ```
-- static code check
-```bash
+
+Static code check:
+
+```sh
 go run honnef.co/go/tools/cmd/staticcheck@latest -f stylish -checks 'all,-ST1000' ./...
 ```
+
 ## Interfaces
 
 - A more typical pattern in Go is to return concrete structs, and use interfaces for parameter types received by functions.
@@ -79,7 +101,7 @@ Learning Go, 2nd Edition, Ch [9. Errors](https://learning.oreilly.com/library/vi
 - wrap errors using `fmt.Errorf` and `%w`, e.g. `fmt.Errorf("in fileChecker: %w", err)`
 - instead of `errors.Unwrap` use `errors.Is` and `errors.As`
 - implement `Unwrap` to wrap errors with your custom error
-- if you want to create a new error that contains the message from another error, but don't want to wrap it use `%v`, e.g. 
+- if you want to create a new error that contains the message from another error, but don't want to wrap it use `%v`, e.g.
 
 ```go
 err := internalFunction()
@@ -90,7 +112,7 @@ if err != nil {
 
 ### Wrapping Multiple Errors
 
-- for e.g. validation when you need to return an error for each field use `errors.Join`
+For e.g. validation when you need to return an error for each field use `errors.Join`:
 
 ```go
 type Person struct {
@@ -116,7 +138,8 @@ func ValidatePerson(p Person) error {
     return nil
 }
 ```
-- another way to merge errors is using multiple `%w`
+
+Another way to merge errors is using multiple `%w`:
 
 ```go
 err1 := errors.New("first error")
@@ -127,7 +150,7 @@ err := fmt.Errorf("first: %w, second: %w, third: %w", err1, err2, err3)
 
 ### Is and As
 
-- use `errors.Is` to check for sentinel errors in the error tree, it uses `==` internally
+Use `errors.Is` to check for sentinel errors in the error tree, it uses `==` internally:
 
 ```go
 func fileChecker(name string) error {
@@ -148,4 +171,5 @@ func main() {
     }
 }
 ```
-- for non comparable types implement the `Is` method
+
+For non comparable types implement the `Is` method.
