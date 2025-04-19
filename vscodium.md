@@ -11,3 +11,8 @@ Install any extension not available from the VSCodium store:
 
 1. Install in VSCodium with `ct+sh+p` and `Install from Location...`.
 1. Select the extension directory `~/.vscode-oss/<extension-name>`.
+
+## Keyboard Shortcuts
+
+- Git: Discard Changes : `ct + k, ct + al + backspace`
+- Git Log: `al + sh + h`
