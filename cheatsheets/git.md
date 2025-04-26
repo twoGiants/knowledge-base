@@ -59,6 +59,15 @@ git stash pop
 # resolve conflicts if any
 ```
 
+Checkout PR branch from a fork:
+
+```sh
+# tektoncd/pipeline PR 8677 example
+git fetch upstream pull/8677/head:aThorp96-git-resolver-memory-leak
+
+git checkout aThorp96-git-resolver-memory-leak
+```
+
 ## Commands
 
 Restore to commit before merge:
