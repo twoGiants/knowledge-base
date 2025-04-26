@@ -41,6 +41,24 @@ Now an example from the Obsidian vault. Exclude everything except plans (`2. Are
 !4. Archive/Time Management/Weekly/2025
 ```
 
+## Workflows
+
+Add your staged changes to a commit which is `n` commits in the past:
+
+```sh
+# stash your staged files
+git stash
+
+# interactively rebase and go to the commit in the past you want to add the change
+git rebase -i HEAD^4
+
+# in interactive rebase change "pick" to "edit" on your target commit
+# then pop or apply the stash
+git stash pop
+
+# resolve conflicts if any
+```
+
 ## Commands
 
 Restore to commit before merge:
