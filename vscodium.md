@@ -14,5 +14,7 @@ Install any extension not available from the VSCodium store:
 
 ## Keyboard Shortcuts
 
-- Git: Discard Changes : `ct + k, ct + al + backspace`
-- Git Log: `al + sh + h`
+- Git discard changes: `ct + k, ct + al + backspace`
+- Git log: `al + sh + h`
+- Git open changes for file: `ct + sh + al + g`
+- Git open all changes in a list: `ct + sh + al + g`
