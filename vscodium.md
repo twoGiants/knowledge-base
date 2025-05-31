@@ -18,3 +18,7 @@ Install any extension not available from the VSCodium store:
 - Git log: `al + sh + h`
 - Git open changes for file: `ct + sh + al + g`
 - Git open all changes in a list: `ct + sh + al + g`
+
+- Mario block jump: `ct + al + up|do|le|ri`
+
+- Move tab: `sh + me + le|ri`
