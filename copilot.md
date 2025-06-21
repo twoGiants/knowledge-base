@@ -1,8 +1,14 @@
 # Copilot & ChatGPT Commands
 
 - Don't change the files. Just show me the tests here and explain what you did.
+- Don't change the files. Just provide an answer in the chat.
 - Don't change the files.
+- Remember this command for our entire chat: Don't change the files unless told to.
 - tektoncd/triggers
+- tektoncd/chains
+- tektoncd/results
+- tektoncd/operator
+- tektoncd/dashboard
 
 ## Copilot Personal Instructions
 
