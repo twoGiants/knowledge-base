@@ -22,3 +22,6 @@ Install any extension not available from the VSCodium store:
 - Mario block jump: `ct + al + up|do|le|ri`
 
 - Move tab: `sh + me + le|ri`
+
+- Navigate back: `al + z`
+- Navigate forward: `al + sh + z`
