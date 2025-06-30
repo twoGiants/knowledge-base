@@ -43,6 +43,8 @@ Now an example from the Obsidian vault. Exclude everything except plans (`2. Are
 
 ## Workflows
 
+### Amend old Commit
+
 Add your staged changes to a commit which is `n` commits in the past:
 
 ```sh
@@ -59,6 +61,8 @@ git stash pop
 # resolve conflicts if any
 ```
 
+### Checkout Fork
+
 Checkout PR branch from a fork:
 
 ```sh
@@ -67,6 +71,36 @@ git fetch upstream pull/8677/head:aThorp96-git-resolver-memory-leak
 
 git checkout aThorp96-git-resolver-memory-leak
 ```
+
+### Change Commit Date
+
+## Change Last Git Commit Date to Yesterday
+
+1. Set yesterday’s date:
+
+   ```bash
+   export GIT_COMMITTER_DATE="$(date -d 'yesterday' '+%Y-%m-%d %H:%M:%S')"
+   export GIT_AUTHOR_DATE="$GIT_COMMITTER_DATE"
+   ```
+
+2. Amend the latest commit:
+
+   ```bash
+   git commit --amend --no-edit --date "$GIT_AUTHOR_DATE"
+   ```
+
+3. Force-push:
+
+   ```bash
+   git push --force
+   ```
+
+4. Reset:
+
+   ```bash
+   unset GIT_COMMITTER_DATE
+   unset GIT_AUTHOR_DATE
+   ```
 
 ## Commands
 
