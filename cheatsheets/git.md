@@ -102,6 +102,17 @@ git checkout aThorp96-git-resolver-memory-leak
    unset GIT_AUTHOR_DATE
    ```
 
+## Change to Day Before Yesterday
+
+1. Set day before yesterday’s date:
+
+   ```bash
+   export GIT_COMMITTER_DATE="$(date -d '2 days ago' '+%Y-%m-%d %H:%M:%S')"
+   export GIT_AUTHOR_DATE="$GIT_COMMITTER_DATE"
+   ```
+
+For the other steps see above.
+
 ## Commands
 
 Restore to commit before merge:
