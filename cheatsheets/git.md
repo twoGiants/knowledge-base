@@ -125,19 +125,21 @@ git reset --merge HEAD~1
 git reset --merge <commit-sha>
 ```
 
-Store username and password
+### Configuration
+
+Store username and password:
 
 ```sh
 git config --global credential.helper store
 ```
 
-Cache username and password for a session
+Cache username and password for a session:
 
 ```sh
 git config --global credential.helper cache
 ```
 
-Config
+Show configurations:
 
 ```sh
 git config —-list
