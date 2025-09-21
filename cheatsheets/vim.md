@@ -112,3 +112,11 @@ All commands are from vimtutor.
 - `:help  `: opens help
 - `:q     `: closes help
 - `C-w C-w`: jump to another window
+
+## Indent Multiple Lines
+
+- `C-v  `: enter select block mode
+- `down `: arrow keys to select lines / to duplicate cursor
+- `I    `: enter insert mode at the beginning of selection
+- `Space`: add space
+- `Esc  `: leave insert mode => voila
