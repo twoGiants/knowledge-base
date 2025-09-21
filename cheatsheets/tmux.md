@@ -30,25 +30,31 @@ tmux kill-session -t hello
 # Config is in
 vim ~/.tmux.conf
 
+## SESSIONS
+# Next session:     pre + [; pre + ]
+
+## WINDOWS
+# New window:       pre + w
+# Rename window:    pre + n
+# Go to window:     pre + 1..n
+# Next/prev window: alt + right/left
+
+## PANES
 # Split vertical:   pre + v
 # Split horizontal: pre + h
 # Go to pane:       pre + arrow key
 # Resize pane:      pre + alt + arrow key
 # Close pane:       pre + x
 
-# New window:       pre + w
-# Rename window:    pre + n
-# Go to window:     pre + 1..n
-# Next/prev window: alt + right/lefv
-
 ## EXTRACTO: better copy mode
 # Search output:    pre + tab
-# Insert selecte:   tab
+# Insert select:    tab
 
 ## COPY MODE
 # Copy mode:        pre + [
 # Scroll up/down:   ctr + u/d
-# Search:           /
+# Search:           /; type word then "Enter"
+# Next/Prev result: n, N
 # Start selection:  v
 # Copy selection:   y (yank)
 # Leave copy mode:  q
@@ -58,7 +64,6 @@ vim ~/.tmux.conf
 # Url search:       pre + ctr + u
 # Number search:    pre + ctr + d
 # IP address s.:    pre + alt + i
-# Next/Prev result: n, N
 
 ## tmuxp Session Management
 tmuxp load fabric
