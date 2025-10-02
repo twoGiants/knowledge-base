@@ -31,7 +31,7 @@ tmux kill-session -t hello
 vim ~/.tmux.conf
 
 ## SESSIONS
-# Next session:     pre + [; pre + ]
+# Next session:     pre + (; pre + )
 
 ## WINDOWS
 # New window:       pre + w
