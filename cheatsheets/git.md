@@ -52,7 +52,7 @@ Add your staged changes to a commit which is `n` commits in the past:
 git stash
 
 # interactively rebase and go to the commit in the past you want to add the change
-git rebase -i HEAD^4
+git rebase -i HEAD~4
 
 # in interactive rebase change "pick" to "edit" on your target commit
 # then pop or apply the stash
